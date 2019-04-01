@@ -1,52 +1,44 @@
-var pikachu = {
-  nombre: "Pikachu",
+var pokemones = [
+  {nombre:"pikachu",
   vida: 100,
   ataque: 20,
   atacar: function (atacado) {
-      atacado.vida = atacado.vida - this.ataque 
-  }
-}
+      atacado.vida = atacado.vida - this.ataque }
+  },
 
-var charmander =  {
-  nombre: "Charmander",
+  {nombre: "charmander",
   vida: 100,
   ataque: 5,
   atacar: function (atacado) {
-    atacado.vida = atacado.vida - this.ataque 
-}
-}
-
-
-while (pikachu.vida>0 && charmander.vida>0){
-  var victimario = prompt('Ataca:', '');
-  var victima = prompt('Atacado', '');
-
-  victimario = victimario.toLowerCase();
-  victima = victima.toLowerCase();
-
-  if(victimario == 'pikachu' && victima == 'charmander'){
-
-    pikachu.atacar(charmander);
-    console.log('La vida de ' + charmander.nombre + ' es: ' + charmander.vida);
-
-  }else if(victimario == 'charmander' && victima == 'pikachu'){
-
-    
-    charmander.atacar(pikachu);
-    console.log('La vida de ' + pikachu.nombre + ' es: ' + pikachu.vida);
-
-  } else {
-    console.log('Entra un nombre de pokemon');
-
-    pikachu.vida = 0;
+  atacado.vida = atacado.vida - this.ataque }
   }
+]
 
-} if(pikachu.vida <= 0){
 
-  console.log('Mataste a Pikachu!')
 
- }else if(pikachu.vida = 0){
+  var atacante = prompt('Ataca:', '');
+  var atacado = prompt('Atacado', '');
 
-  console.log('Mataste a Pikachu!')
+  atacante = atacante.toLowerCase();
+  atacado = atacado.toLowerCase();
 
+
+for(var i=0; i<pokemones.length; i++){
+  
+  if(atacante === pokemones[i].nombre){
+
+    console.log(atacante)
+
+    for(var j =0; j<pokemones.length; j++){
+
+      if(atacado === pokemones[j].nombre){
+        console.log(atacado)
+        pokemones[i].atacar(pokemones[j])
+
+        console.log(pokemones[i].nombre + ' atacó a ' + pokemones[j].nombre + ' que ahora tiene ' + pokemones[j].vida + ' puntos de vida')
+      }
+    }
+  }
 }
+
+
